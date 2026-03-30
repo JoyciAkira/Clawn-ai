@@ -10,16 +10,6 @@ Clawn è un assistente AI personale framework progettato per essere specializzat
 - **Cybersecurity SOC Assistant** - Monitoraggio sicurezza
 - **Fintech Financial Ops** - Operazioni finanziarie
 
-## Come usare questo repository
-
-Questo repository contiene la documentazione e il piano di monetizzazione per Clawn.
-
-Per il codice sorgente, clona [OpenClaw](https://github.com/openclaw/openclaw) e applica le personalizzazioni descritte nel piano.
-
-## Piano di Monetizzazione
-
-Vedi [MONETIZATION_PLAN.md](./MONETIZATION_PLAN.md) per il dettaglio completo.
-
 ## Struttura del Progetto
 
 ```
@@ -28,22 +18,62 @@ clawn/
 ├── MONETIZATION_PLAN.md     # Piano di monetizzazione dettagliato
 ├── docs/                    # Documentazione (da completare)
 ├── specs/                   # Specifiche tecniche (da completare)
-└── src/                     # Codice sorgente (da clonare da OpenClaw)
+└── src/                     # Codice sorgente OpenClaw (già clonato)
 ```
 
-## Prossimi Passi
+## Come Avviare
 
-1. **Clonare OpenClaw**: `git clone https://github.com/openclaw/openclaw.git src`
-2. **Applicare personalizzazioni**: Seguire il piano di monetizzazione
-3. **Sviluppare MVP**: Implementare le prime features verticali
-4. **Deploy**: Configurare ambiente di produzione
+### 1. Dipendenze
 
-## Contatti
+```bash
+cd src
+pnpm install
+```
 
-- Repository: https://github.com/JoyciAkira/Clawn-ai
-- Issue tracker: https://github.com/JoyciAkira/Clawn-ai/issues
+### 2. Configurazione
+
+Copia `.env.example` in `.env` e configura le API keys:
+
+```bash
+cp src/.env.example src/.env
+# Modifica src/.env con le tue API keys
+```
+
+### 3. Avviare il Gateway
+
+```bash
+cd src
+pnpm gateway
+```
+
+### 4. Accedere all'Interfaccia
+
+Apri http://localhost:3000 nel browser.
+
+## Caratteristiche Principali
+
+- **Multi-channel**: WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, BlueBubbles, IRC, Microsoft Teams, Matrix, Feishu, LINE, Mattermost, Nextcloud Talk, Nostr, Synology Chat, Tlon, Twitch, Zalo, Zalo Personal, WeChat, WebChat
+- **Voice Wake + Talk Mode**: attivazione vocale su macOS/iOS, modalità conversazione continua su Android
+- **Canvas + A2UI**: workspace visivo guidato dall'agente
+- **Multi-agent routing**: routing di canali/account/peer verso agenti isolati
+- **Skills platform**: bundled, managed, e workspace skills
+- **Gateway WebSocket**: piano di controllo unico per sessioni, canali, strumenti e eventi
+
+## Piano di Monetizzazione
+
+Vedi [MONETIZATION_PLAN.md](./MONETIZATION_PLAN.md) per il dettaglio completo.
+
+## Stack Tecnico
+
+- **Runtime**: Node 22+ (TypeScript)
+- **Package Manager**: pnpm/bun
+- **Database**: SQLite (local), PostgreSQL (cloud)
+- **AI Providers**: OpenAI, Anthropic, Google, ecc.
+
+## Licenza
+
+MIT - derivato da [OpenClaw](https://github.com/openclaw/openclaw)
 
 ---
 
 *Basato su analisi di TrustMRR, Acquire.com e dati VC 2026*
-EOF && cp /tmp/clawn-clean/MONETIZATION_PLAN.md . && git add . && git commit -m "Initial commit: Clawn documentation and monetization plan" && git branch -M main && git remote add origin https://github.com/JoyciAkira/Clawn-ai.git && git push -u origin main
